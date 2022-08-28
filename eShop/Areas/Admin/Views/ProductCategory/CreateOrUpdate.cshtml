@@ -1,0 +1,28 @@
+﻿@model eShop.Database.Entities.ProductCategory
+@{
+	ViewData["Title"] =  $"{ViewBag.Title} danh mục";
+}
+
+<h1>@ViewBag.Title</h1>
+
+@{ 
+	var id = Model?.Id != null ? Model.Id : 0;
+	var name = Model?.Name != null ? Model.Name : "";
+}
+
+<div class="row">
+	<div class="col-6">
+		<form method="post" asp-action="CreateOrUpdate" class="mb-3" autocomplete="off">
+			<input type="hidden" asp-for="Id" value="@id" />
+			<div class="mb-3">
+				<label asp-for="Name" class="form-label">Tên danh mục</label>
+				<input asp-for="Name" class="form-control" value="@name">
+			</div>
+			<div>
+				<button class="btn btn-primary" type="submit">@ViewBag.Title</button>
+				<button class="btn btn-light" type="reset">Nhập lại</button>
+			</div>
+		</form>
+		<a class="btn btn-outline-info" asp-controller="ProductCategory" asp-action="Index">Về trang danh sách</a>
+	</div>
+</div>
