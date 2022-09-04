@@ -1,4 +1,4 @@
-﻿@model eShop.Database.Entities.ProductCategory
+﻿@model eShop.Areas.Admin.ViewModels.ProductCategory.AddOrUpdateCategoryVM
 @{
 	ViewData["Title"] =  $"{ViewBag.Title} danh mục";
 }
@@ -13,9 +13,10 @@
 <div class="row">
 	<div class="col-6">
 		<form method="post" asp-action="CreateOrUpdate" class="mb-3" autocomplete="off">
+			<div asp-validation-summary="All" class="text-danger"></div>
 			<input type="hidden" asp-for="Id" value="@id" />
 			<div class="mb-3">
-				<label asp-for="Name" class="form-label">Tên danh mục</label>
+				<label asp-for="Name" class="form-label"></label>
 				<input asp-for="Name" class="form-control" value="@name">
 			</div>
 			<div>

@@ -1,4 +1,5 @@
-﻿using eShop.Database;
+﻿using AutoMapper;
+using eShop.Database;
 using Microsoft.AspNetCore.Mvc;
 
 namespace eShop.Areas.Admin.Controllers
@@ -7,9 +8,11 @@ namespace eShop.Areas.Admin.Controllers
 	public class BaseController : Controller
 	{
 		protected readonly AppDbContext _db;
-		public BaseController(AppDbContext db)
+		protected readonly IMapper _mapper;
+		public BaseController(AppDbContext db, IMapper mapper)
 		{
 			_db = db;
+			_mapper = mapper;
 		}
 	}
 }
